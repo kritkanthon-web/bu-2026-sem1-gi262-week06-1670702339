@@ -5,14 +5,38 @@ namespace MidtermExam.Prob02
 {
     public class LinkedListSorter
     {
-        /// <summary>
-        /// เรียงลำดับตัวเลขใน LinkedList จากน้อยไปมาก (Ascending Order)
-        /// </summary>
-        /// <param name="list">LinkedList ของตัวเลข integer</param>
-        /// <returns>LinkedList ที่ได้รับการเรียงลำดับจากน้อยไปมากแล้ว</returns>
-        public LinkedList<int> SortAscending(LinkedList<int> list)
+
+        public LinkedList<int> SortDescending(LinkedList<int> list)
         {
-            // TODO: Implement sorting algorithm for LinkedList<int> (Ascending)
+            if (list.Count < 2) return list;
+
+            bool swapped = true;
+            while (swapped)
+            {
+                swapped = false;
+                var node = list.First;
+                bool reachedEnd = false;
+
+                while (reachedEnd == false)
+                {
+                    if (node.Next == null)
+                    {
+                        reachedEnd = true;
+                    }
+                    else
+                    {
+                        if (node.Value < node.Next.Value)
+                        {
+                            int temp = node.Value;
+                            node.Value = node.Next.Value;
+                            node.Next.Value = temp;
+                            swapped = true;
+                        }
+                        node = node.Next;
+                    }
+                }
+            }
+
             return list;
         }
 
@@ -21,9 +45,37 @@ namespace MidtermExam.Prob02
         /// </summary>
         /// <param name="list">LinkedList ของตัวเลข integer</param>
         /// <returns>LinkedList ที่ได้รับการเรียงลำดับจากมากไปน้อยแล้ว</returns>
-        public LinkedList<int> SortDescending(LinkedList<int> list)
+        public LinkedList<int> SortAscending(LinkedList<int> list)
         {
-            // TODO: Implement sorting algorithm for LinkedList<int> (Descending)
+            if (list.Count < 2) return list;
+
+            bool swapped = true;
+            while (swapped)
+            {
+                swapped = false;
+                var node = list.First;
+                bool reachedEnd = false;
+
+                while (reachedEnd == false)
+                {
+                    if (node.Next == null)
+                    {
+                        reachedEnd = true;
+                    }
+                    else
+                    {
+                        if (node.Value > node.Next.Value)
+                        {
+                            int temp = node.Value;
+                            node.Value = node.Next.Value;
+                            node.Next.Value = temp;
+                            swapped = true;
+                        }
+                        node = node.Next;
+                    }
+                }
+            }
+
             return list;
         }
     }
