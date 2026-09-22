@@ -10,10 +10,10 @@ namespace MidtermExam.Prob02
         {
             if (list.Count < 2) return list;
 
-            bool swapped = true;
-            while (swapped)
+            bool changed = true;
+            while (changed) 
             {
-                swapped = false;
+                changed = false;
                 var node = list.First;
                 bool reachedEnd = false;
 
@@ -30,7 +30,7 @@ namespace MidtermExam.Prob02
                             int temp = node.Value;
                             node.Value = node.Next.Value;
                             node.Next.Value = temp;
-                            swapped = true;
+                            changed = true;
                         }
                         node = node.Next;
                     }
@@ -49,10 +49,10 @@ namespace MidtermExam.Prob02
         {
             if (list.Count < 2) return list;
 
-            bool swapped = true;
-            while (swapped)
+            bool changed = true;
+            while (changed)
             {
-                swapped = false;
+                changed = false;
                 var node = list.First;
                 bool reachedEnd = false;
 
@@ -69,7 +69,7 @@ namespace MidtermExam.Prob02
                             int temp = node.Value;
                             node.Value = node.Next.Value;
                             node.Next.Value = temp;
-                            swapped = true;
+                            changed = true;
                         }
                         node = node.Next;
                     }
